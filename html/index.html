@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!--
+    WTS Limiter - Standalone speed limiter for FiveM
+    Copyright (C) 2026 WTS Scripts
+    Licensed under the GNU General Public License v3.0 or later.
+    See LICENSE or <https://www.gnu.org/licenses/>.
+-->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<style>
+  :root {
+    --bg: #1f1f23;
+    --text: #e5e5e5;
+    --accent: #8a8a8f;
+  }
+  html, body {
+    margin: 0; padding: 0;
+    width: 100vw; height: 100vh;
+    overflow: hidden;
+    background: transparent;
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    user-select: none;
+  }
+  #wrap {
+    position: absolute;
+    right: 1.5vw;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-end;
+  }
+  .notif {
+    min-width: 220px;
+    max-width: 320px;
+    background: var(--bg);
+    color: var(--text);
+    border-left: 4px solid var(--accent);
+    border-radius: 6px;
+    padding: 10px 14px 10px 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,.45);
+    opacity: 0;
+    transform: translateX(30px);
+    animation: in .22s ease-out forwards;
+  }
+  .notif.out { animation: out .25s ease-in forwards; }
+  @keyframes in  { to { opacity: 1; transform: translateX(0); } }
+  @keyframes out { to { opacity: 0; transform: translateX(30px); } }
+
+  .title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 2px;
+  }
+  .msg {
+    font-size: 13px;
+    line-height: 1.35;
+  }
+  .speed {
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+    margin-top: 4px;
+  }
+  .speed .value {
+    font-size: 34px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -.02em;
+    color: #ffffff;
+  }
+  .speed .unit {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    opacity: .7;
+  }
+</style>
+</head>
+<body>
+<div id="wrap"></div>
+<script>
+  const wrap = document.getElementById('wrap');
+
+  function show(d) {
+    const el = document.createElement('div');
+    el.className = 'notif';
+    el.style.setProperty('--bg', d.colors.background);
+    el.style.setProperty('--text', d.colors.text);
+    el.style.setProperty('--accent', d.accent);
+
+    let html = `<div class="title">${d.title}</div>`;
+    if (d.text) html += `<div class="msg">${d.text}</div>`;
+    if (d.speed !== undefined && d.speed !== null) {
+      html += `<div class="speed"><span class="value">${d.speed}</span><span class="unit">${d.unit}</span></div>`;
+    }
+    el.innerHTML = html;
+    wrap.appendChild(el);
+
+    setTimeout(() => {
+      el.classList.add('out');
+      setTimeout(() => el.remove(), 260);
+    }, d.duration || 4000);
+  }
+
+  window.addEventListener('message', (e) => {
+    if (e.data && e.data.action === 'notify') show(e.data);
+  });
+</script>
+</body>
+</html>
