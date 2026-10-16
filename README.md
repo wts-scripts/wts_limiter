@@ -4,10 +4,10 @@
 
 [![Release](https://img.shields.io/github/v/release/Wts-scripts/wts_limiter?style=flat-square)](https://github.com/Wts-scripts/wts_limiter/releases/latest)
 [![License: GPL-3.0](https://img.shields.io/badge/license-GPL--3.0-blue?style=flat-square)](LICENSE)
-[![Docs](https://img.shields.io/badge/docs-GitBook-purple?style=flat-square)](https://wts-scripts.gitbook.io/wts_scripts-docs)
-[![Discord](https://img.shields.io/badge/discord-WTS%20Scripts-5865F2?style=flat-square)](https://discord.gg/79THbUP9xN)
+[![Docs](https://img.shields.io/badge/docs-wts--docs.vercel.app-7c3aed?style=flat-square)](https://wts-docs.vercel.app/wts_limiter)
+[![Discord](https://img.shields.io/badge/discord-WTS%20Scripts-5865F2?style=flat-square)](https://discord.gg/5VMgt422WX)
 
-Made by **WTS Scripts** · [Store](https://wts-scripts.tebex.store) · [Documentation](https://wts-scripts.gitbook.io/wts_scripts-docs) · [Discord](https://discord.gg/79THbUP9xN)
+Made by **WTS Scripts** · [Store](https://wts-scripts.tebex.store) · [Documentation](https://wts-docs.vercel.app/wts_limiter) · [Discord](https://discord.gg/5VMgt422WX)
 
 > Also available as a free package on the [WTS Scripts store](https://wts-scripts.tebex.store) if you prefer to get update notifications through Tebex/Discord.
 
@@ -26,7 +26,7 @@ Press a key while driving and your current speed becomes the limit — like a re
 
 ## Installation
 
-1. Put `wts_limiter` in `resources/`.
+1. Download the source (**Code → Download ZIP**, or the latest [release](https://github.com/Wts-scripts/wts_limiter/releases)), extract it and **rename the folder to `wts_limiter`** (GitHub names it `wts_limiter-main`). Other WTS scripts look it up by this exact name. Put it in `resources/`.
 2. `server.cfg`:
    ```cfg
    ensure wts_limiter
@@ -50,8 +50,10 @@ Everything is in `config.lua`:
 
 ## Support
 
-- Bug or idea → [Issues](https://github.com/Wts-scripts/wts_limiter/issues)
-- Questions → [Discord](https://discord.gg/79THbUP9xN)
+**This is a free package: no support is provided.** No tickets, no priority help. Discord support tickets are reserved for paid WTS scripts.
+
+- Bug or idea → [Issues](https://github.com/Wts-scripts/wts_limiter/issues) — handled on a best-effort basis
+- Community chat → [Discord](https://discord.gg/5VMgt422WX)
 
 ## License
 
